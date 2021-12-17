@@ -21,13 +21,11 @@ class Band:
     self.members = members
     Band.instances.append(self)
 
-
   def __str__(self):
     return f"The band {self.name}"
 
   def __repr__(self):
-    return f"Band instances. name={self.name}, members={self.members}"
-
+    return f"Band instance. name={self.name}, members={self.members}"
 
 # need to go in each class instance
   @classmethod
@@ -40,13 +38,12 @@ class Band:
       solos.append(member.play_solo())
     return solos
 
-
-
 # ----------------------
 
 
 # ask for help with setting inherited properties/parent grandparent class
 # ----------------------
+
 class Guitarist(Musician):
   
   def __str__(self):
@@ -55,19 +52,19 @@ class Guitarist(Musician):
   def __repr__(self):
       return f"Guitarist instance. Name = {self.name}"
 
+  @classmethod
+  def to_list(cls):
+    return cls.instances
+
   def get_instrument(self):
     return f"guitar"  
-
 
   def play_solo(self):
     return f"face melting guitar solo"
   #pass
 
-  @classmethod
-  def to_list(cls):
-    return cls.instances
-
 # ----------------------
+
 class Bassist(Musician):
 
   def __str__(self):
@@ -76,6 +73,10 @@ class Bassist(Musician):
   def __repr__(self):
       return f"Bassist instance. Name = {self.name}"
 
+  @classmethod
+  def to_list(cls):
+    return cls.instances
+
   def get_instrument(self):
     return f"bass" 
 
@@ -83,9 +84,6 @@ class Bassist(Musician):
     return f"bom bom buh bom"
   #pass
 
-  @classmethod
-  def to_list(cls):
-    return cls.instances
 
 # ----------------------
 class Drummer(Musician):
@@ -96,19 +94,16 @@ class Drummer(Musician):
   def __repr__(self):
       return f"Drummer instance. Name = Sheila E."
 
-  def get_instrument(self):
-    return f"drums" 
-
-
-  def play_solo(self):
-    return f"rattle boom crash"
-  #pass
-
   @classmethod
   def to_list(cls):
     return cls.instances
 
+  def get_instrument(self):
+    return f"drums" 
 
+  def play_solo(self):
+    return f"rattle boom crash"
+  #pass
 
 # initializing a class means populating values
 
